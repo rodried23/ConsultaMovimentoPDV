@@ -1,0 +1,6 @@
+@ConsultaMovimentoPDV_HostAddress = http://localhost:5241
+
+GET {{ConsultaMovimentoPDV_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
