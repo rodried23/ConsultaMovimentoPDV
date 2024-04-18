@@ -1,10 +1,13 @@
-﻿namespace ConsultaMovimentoPDV.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ConsultaMovimentoPDV.Models
 {
     public class MovimentoModel
     {
-        public Guid Id { get; set; }
+        [Key]
+        public Guid Cod_Movimento { get; set; }
         public int Loja { get; set; }
-        public int Terminal { get; set; }
+        public int NR_Terminal { get; set; }
         public string CPF_CNPJ { get; set; }
         public decimal ValorTotal_Compra { get; set; }
         public decimal ValorTotal_Item { get; set; }

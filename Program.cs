@@ -1,5 +1,6 @@
-using ConsultaMovimentoPDV.Data;
 using Microsoft.EntityFrameworkCore;
+using ConsultaMovimentoPDV.Data;
+using ConsultaMovimentoPDV.Services;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +12,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IMovimentoInterface, MovimentoService>();
+builder.Services.AddScoped<INfceSerieInterface, NfceSerieService>();
+
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionLocal"));
 });
 
 var app = builder.Build();
